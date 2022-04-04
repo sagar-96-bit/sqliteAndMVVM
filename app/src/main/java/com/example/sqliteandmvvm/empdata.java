@@ -1,16 +1,26 @@
 package com.example.sqliteandmvvm;
 
 public class empdata {
+    int id;
     String emp_name;
     String enp_age;
     String emp_salary;
     String emp_address;
 
-    public empdata(String emp_name, String enp_age, String emp_salary, String emp_address) {
+    public empdata(int id, String emp_name, String enp_age, String emp_salary, String emp_address) {
+        this.id = id;
         this.emp_name = emp_name;
         this.enp_age = enp_age;
         this.emp_salary = emp_salary;
         this.emp_address = emp_address;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmp_name() {

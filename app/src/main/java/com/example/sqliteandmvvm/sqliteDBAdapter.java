@@ -77,6 +77,7 @@ public int TotalData()
 
     public boolean removeData(int pos)
     {
+
         int res=sqLiteDatabase.delete(tableName, Column1+"="+pos,null);
          if(res>0)
          {
@@ -96,14 +97,15 @@ public int TotalData()
 
     public List<empdata> getAllData()
     {
-         List<empdata> emp=new ArrayList<>();
+         ArrayList<empdata> emp=new ArrayList<>();
         Cursor cursor=sqLiteDatabase.rawQuery("select * from "+tableName,null);
         if(cursor!=null&&cursor.getCount()>=0)
         {
                while(cursor.moveToNext())
                {
-                    empdata e=new empdata(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4));
-                      emp.add(e);
+                    empdata e=new empdata(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4));
+
+                    emp.add(e);
                }
 
         }

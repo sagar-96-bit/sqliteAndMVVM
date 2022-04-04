@@ -32,9 +32,12 @@ public class customListAdapter extends RecyclerView.Adapter<customListAdapter.My
               @Override
               public boolean onLongClick(View view) {
                   int pos=mv.getAdapterPosition();
+                  empdata e=empList.get(pos);
+                  int SqliteId=e.getId();
                   empList.remove(pos);
                   sqliteDBAdapter=SqliteDBAdapter.getSqliteAdapterInstnce(context);
-                  boolean b= sqliteDBAdapter.removeData(pos);
+
+                  boolean b= sqliteDBAdapter.removeData(SqliteId);
                     if (b)
                        notifyDataSetChanged();
                     else

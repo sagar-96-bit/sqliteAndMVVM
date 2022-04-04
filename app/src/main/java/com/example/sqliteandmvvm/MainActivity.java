@@ -83,7 +83,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 {
                     //empdata e=new empdata(editname.getText().toString(),editage.getText().toString(),editsalary.getText().toString(),editaddr.getText().toString());
                     empdataList=sqliteDBAdapter.getAllData();
+                     for(empdata e:empdataList)
+                     {
 
+                     }
 
                     CA=new customListAdapter(this,empdataList);
                     layoutManager=new LinearLayoutManager(this);
